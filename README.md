@@ -40,6 +40,7 @@ pip install -r requirements.txt
 - `knowledge_base_olympics_2022_bot.ipynb` - основной блокнот с ботом
 - `data/winter_olympics_2022_v3_small.zip` - база знаний (архив)
 - `requirements.txt` - зависимости Python
+- `img/` - скриншоты работы бота
 - `README.md` - этот файл
 
 ## Команды бота
@@ -47,3 +48,9 @@ pip install -r requirements.txt
 - `/start` - приветственное сообщение
 - `/help` - информация о базе знаний (тематика, количество записей, пример запроса)
 - Любой текстовый запрос - бот ищет ответ в базе знаний и возвращает результат
+
+## Скриншоты
+
+![Команды /start и /help](img/knowledge_base_start_help.jpg)
+
+![Вопрос и ответ бота](img/knowledge_base_question_answer.jpg)

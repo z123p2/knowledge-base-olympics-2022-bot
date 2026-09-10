@@ -1,56 +1,66 @@
+English | [Русский](README.ru.md)
+
 # Knowledge Base Olympics 2022 Bot
 
-Telegram-бот, который отвечает на вопросы о зимних Олимпийских играх 2022 года, используя метод Search-Ask с эмбеддингами и GPT.
+![Python](https://img.shields.io/badge/python-3.x-blue)
+![OpenAI](https://img.shields.io/badge/LLM-GPT--4o--mini-green)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-Доступен в Telegram: [@knowledge_base_olympics_2022_bot](https://t.me/knowledge_base_olympics_2022_bot)
+A Telegram bot that answers questions about the 2022 Winter Olympics using the
+Search-Ask approach: embeddings search + GPT generation.
 
-## Установка зависимостей
+The bot is live in Telegram: [@knowledge_base_olympics_2022_bot](https://t.me/knowledge_base_olympics_2022_bot)
 
-```bash
-pip install -r requirements.txt
-```
+## How it works
 
-## Настройка
+1. The knowledge base is downloaded from the repository (a ZIP archive with
+   article texts and embeddings)
+2. The user's question is converted to an embedding via `text-embedding-3-small`
+3. The most relevant article sections are found by cosine distance
+4. Relevant sections are added as context to the GPT-4o-mini prompt
+5. The answer is returned to the user
 
-1. Получите API-ключ OpenAI: https://platform.openai.com/api-keys
-2. Создайте бота через [@BotFather](https://t.me/BotFather) и получите токен
-3. В Google Colab добавьте секреты (значок ключа в левой панели):
-   - `M_TOKEN` - API-ключ OpenAI
-   - `B_TOKEN` - токен Telegram-бота
+## Business value
+
+An example of a reference-service bot: it answers customers or employees from
+company documents instead of a human operator. The same pipeline works for any
+document base (FAQ, regulations, product docs).
+
+## Setup
+
+1. Get an OpenAI API key: https://platform.openai.com/api-keys
+2. Create a bot via [@BotFather](https://t.me/BotFather) and get the token
+3. In Google Colab add secrets (the key icon in the left panel):
+   - `M_TOKEN` - OpenAI API key
+   - `B_TOKEN` - Telegram bot token
    - `BASE_URL` - `https://api.openai.com/v1`
 
-## Запуск
+## How to run
 
-1. Откройте `knowledge_base_olympics_2022_bot.ipynb` в Google Colab
-2. Запустите все ячейки
-3. Напишите боту в Telegram команду `/start` или задайте любой вопрос по Олимпиаде-2022
+1. Open `knowledge_base_olympics_2022_bot.ipynb` in Google Colab
+2. Run all cells
+3. Message the bot in Telegram: `/start` or ask any question about the 2022
+   Olympics
 
-База знаний скачивается автоматически из репозитория при запуске блокнота.
+The knowledge base is downloaded automatically from the repository when the
+notebook starts.
 
-## Как это работает
+## Project structure
 
-1. База знаний скачивается из репозитория (ZIP с текстами статей и эмбеддингами)
-2. Вопрос пользователя преобразуется в эмбеддинг через `text-embedding-3-small`
-3. Находятся наиболее релевантные секции статей по косинусному расстоянию
-4. Релевантные секции добавляются как контекст в промпт GPT-4o-mini
-5. Ответ возвращается пользователю
+- `knowledge_base_olympics_2022_bot.ipynb` - the main bot notebook
+- `data/winter_olympics_2022_v3_small.zip` - the knowledge base (archive)
+- `requirements.txt` - Python dependencies
+- `img/` - screenshots of the bot in action
+- `README.md` - this file
 
-## Структура проекта
+## Bot commands
 
-- `knowledge_base_olympics_2022_bot.ipynb` - основной блокнот с ботом
-- `data/winter_olympics_2022_v3_small.zip` - база знаний (архив)
-- `requirements.txt` - зависимости Python
-- `img/` - скриншоты работы бота
-- `README.md` - этот файл
+- `/start` - welcome message
+- `/help` - knowledge base info (topic, number of records, sample query)
+- Any text query - the bot searches the base and returns an answer
 
-## Команды бота
+## Screenshots
 
-- `/start` - приветственное сообщение
-- `/help` - информация о базе знаний (тематика, количество записей, пример запроса)
-- Любой текстовый запрос - бот ищет ответ в базе знаний и возвращает результат
+![Commands /start and /help](img/knowledge_base_start_help.jpg)
 
-## Скриншоты
-
-![Команды /start и /help](img/knowledge_base_start_help.jpg)
-
-![Вопрос и ответ бота](img/knowledge_base_question_answer.jpg)
+![Question and answer](img/knowledge_base_question_answer.jpg)

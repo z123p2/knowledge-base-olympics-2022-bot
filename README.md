@@ -3,7 +3,7 @@ English | [Русский](README.ru.md)
 # Knowledge Base Olympics 2022 Bot
 
 ![Python](https://img.shields.io/badge/python-3.x-blue)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/z123p2/knowledge-base-olympics-2022-bot/blob/main/knowledge_base_olympics_2022_bot.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/iceflux/knowledge-base-olympics-2022-bot/blob/main/knowledge_base_olympics_2022_bot.ipynb)
 [![Telegram Bot](https://img.shields.io/badge/Telegram-Bot-blue?logo=telegram)](https://t.me/knowledge_base_olympics_2022_bot)
 ![OpenAI](https://img.shields.io/badge/LLM-GPT--4o--mini-green)
 ![License](https://img.shields.io/badge/license-MIT-green)
